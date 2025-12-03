@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { MemoryRouter, useNavigate } from "react-router-dom";
+import { MemoryRouter, useNavigate } from "react-router";
 import HelpDropdown from "../HelpDropdown";
 
 jest.mock("@/components/ui/button", () => ({
@@ -54,8 +54,8 @@ jest.mock("@/utils/utils", () => ({
   getOS: () => "macos",
 }));
 
-jest.mock("react-router-dom", () => {
-  const actual = jest.requireActual("react-router-dom");
+jest.mock("react-router", () => {
+  const actual = jest.requireActual("react-router");
   return {
     ...actual,
     useNavigate: jest.fn(),

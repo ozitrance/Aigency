@@ -4,7 +4,7 @@ import {
   createRoutesFromElements,
   Outlet,
   Route,
-} from "react-router-dom";
+} from "react-router";
 import { ProtectedAdminRoute } from "./components/authorization/authAdminGuard";
 import { ProtectedRoute } from "./components/authorization/authGuard";
 import { ProtectedLoginRoute } from "./components/authorization/authLoginGuard";

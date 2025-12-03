@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction, useState } from "react";
-import { useHref } from "react-router-dom";
+import { useHref } from "react-router";
 import IconComponent from "@/components/common/genericIconComponent";
 import ShadTooltipComponent from "@/components/common/shadTooltipComponent";
 import { Button } from "@/components/ui/button";

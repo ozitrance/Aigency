@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router";
 import McpServerTab from "../McpServerTab";
 
 // Mock critical dependencies only
@@ -61,8 +61,8 @@ jest.mock("../../hooks/useMcpServer", () => ({
   }) => mockUseMcpServer(params),
 }));
 
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
+jest.mock("react-router", () => ({
+  ...jest.requireActual("react-router"),
   useParams: () => ({ folderId: "test-folder-id" }),
 }));
 

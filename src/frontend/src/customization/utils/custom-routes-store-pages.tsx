@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route } from "react-router";
 import { StoreGuard } from "@/components/authorization/storeGuard";
 import StoreApiKeyPage from "@/pages/SettingsPage/pages/StoreApiKeyPage";
 import StorePage from "@/pages/StorePage";

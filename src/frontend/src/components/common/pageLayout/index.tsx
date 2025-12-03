@@ -1,4 +1,4 @@
-import type { To } from "react-router-dom";
+import type { To } from "react-router";
 import { CustomBanner } from "@/customization/components/custom-banner";
 import { useCustomNavigate } from "@/customization/hooks/use-custom-navigate";
 import { Button } from "../../ui/button";

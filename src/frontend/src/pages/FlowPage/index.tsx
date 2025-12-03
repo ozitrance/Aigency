@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useBlocker, useParams } from "react-router-dom";
+import { useBlocker, useParams } from "react-router";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useGetFlow } from "@/controllers/API/queries/flows/use-get-flow";
 import { useGetTypes } from "@/controllers/API/queries/flows/use-get-types";

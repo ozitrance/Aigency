@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router";
 import type { KnowledgeBaseInfo } from "@/controllers/API/queries/knowledge-bases/use-get-knowledge-bases";
 
 /**
@@ -119,8 +119,8 @@ export const setupAlertStoreMock = () => {
 export const mockUseParams = (
   params: Record<string, string | undefined> = {},
 ) => {
-  jest.doMock("react-router-dom", () => ({
-    ...jest.requireActual("react-router-dom"),
+  jest.doMock("react-router", () => ({
+    ...jest.requireActual("react-router"),
     useParams: () => params,
   }));
 };

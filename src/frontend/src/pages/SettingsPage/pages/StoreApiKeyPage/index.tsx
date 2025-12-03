@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { CONTROL_PATCH_USER_STATE } from "@/constants/constants";
 import { AuthContext } from "@/contexts/authContext";

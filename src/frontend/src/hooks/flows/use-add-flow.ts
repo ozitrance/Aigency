@@ -1,5 +1,5 @@
 import { cloneDeep } from "lodash";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { UUID_PARSING_ERROR } from "@/constants/constants";
 import { usePostAddFlow } from "@/controllers/API/queries/flows/use-post-add-flow";
 import useAlertStore from "@/stores/alertStore";

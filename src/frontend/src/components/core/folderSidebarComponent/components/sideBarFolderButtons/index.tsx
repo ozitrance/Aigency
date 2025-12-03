@@ -1,6 +1,6 @@
 import { useIsFetching, useIsMutating } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import {
   Sidebar,

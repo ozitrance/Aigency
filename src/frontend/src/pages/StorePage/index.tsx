@@ -1,6 +1,6 @@
 import { uniqueId } from "lodash";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import PaginatorComponent from "@/components/common/paginatorComponent";
 import StoreCardComponent from "@/components/common/storeCardComponent";
 import { CustomLink } from "@/customization/components/custom-link";
