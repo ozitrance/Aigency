@@ -213,10 +213,10 @@ export default function Page({
 
   const { isFetching } = useGetBuildsQuery({ flowId: currentFlowId });
 
-  const showCanvas =
-    Object.keys(templates).length > 0 &&
-    Object.keys(types).length > 0 &&
-    !isFetching;
+  const showCanvas = true
+    // Object.keys(templates).length > 0 &&
+    // Object.keys(types).length > 0 &&
+    // !isFetching;
 
   useEffect(() => {
     setIsLoading(!showCanvas);

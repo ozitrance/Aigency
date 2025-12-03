@@ -2,11 +2,11 @@ import { create } from "zustand";
 import { getDiscordCount, getRepoStars } from "../controllers/API";
 import type { DarkStoreType } from "../types/zustand/dark";
 
-const startedStars = Number(window.localStorage.getItem("githubStars")) ?? 0;
+const startedStars = Number(typeof window !== 'undefined' ? window.localStorage.getItem("githubStars") : 0);
 
 export const useDarkStore = create<DarkStoreType>((set, get) => ({
   dark: (() => {
-    const stored = window.localStorage.getItem("isDark");
+    const stored = typeof window !== 'undefined' ? window.localStorage.getItem("isDark") : null;
     return stored !== null ? JSON.parse(stored) : false;
   })(),
   stars: startedStars,

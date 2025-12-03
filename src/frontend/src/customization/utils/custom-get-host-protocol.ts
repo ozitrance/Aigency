@@ -1,6 +1,6 @@
 export const customGetHostProtocol = () => {
   return {
-    host: window.location.host,
-    protocol: window.location.protocol,
+    host: typeof window === 'undefined' ? null : window.location.host,
+    protocol: typeof window === 'undefined' ? null : window.location.protocol,
   };
 };

@@ -3,7 +3,7 @@ import { useState } from "react";
 import useHandleNewValue from "@/CustomNodes/hooks/use-handle-new-value";
 import CustomIOFileInput from "@/customization/components/custom-file-input";
 import type { AllNodeType } from "@/types/flow";
-import ImageViewer from "../../../../components/common/ImageViewer";
+import ImageViewer from "../../../../components/common/ImageViewer/index.client";
 import CsvOutputComponent from "../../../../components/core/csvOutputComponent";
 import DataOutputComponent from "../../../../components/core/dataOutputComponent";
 import InputListComponent from "../../../../components/core/parameterRenderComponent/components/inputListComponent";

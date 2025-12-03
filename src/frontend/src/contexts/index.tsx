@@ -15,14 +15,14 @@ export default function ContextWrapper({ children }: { children: ReactNode }) {
       <CustomWrapper>
         <GradientWrapper>
           <QueryClientProvider client={queryClient}>
-            <AuthProvider>
+            {/* <AuthProvider> */}
               <TooltipProvider skipDelayDuration={0}>
                 <ReactFlowProvider>
                   <ApiInterceptor />
                   {children}
                 </ReactFlowProvider>
               </TooltipProvider>
-            </AuthProvider>
+            {/* </AuthProvider> */}
           </QueryClientProvider>
         </GradientWrapper>
       </CustomWrapper>

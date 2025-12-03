@@ -34,7 +34,7 @@ function ApiInterceptor() {
 
   const { mutate: mutationLogout } = useLogout();
   const { mutate: mutationRenewAccessToken } = useRefreshAccessToken();
-  const isLoginPage = location.pathname.includes("login");
+  const isLoginPage = typeof location !== 'undefined' ? location.pathname.includes("login") : false;
   const customHeaders = useCustomApiHeaders();
 
   const setHealthCheckTimeout = useUtilityStore(
@@ -47,7 +47,7 @@ function ApiInterceptor() {
         const accessToken = customGetAccessToken();
 
         if (!isExternalURL(url)) {
-          if (accessToken && !isAuthorizedURL(config?.url)) {
+          if (config && accessToken && !isAuthorizedURL(config?.url)) {
             config.headers["Authorization"] = `Bearer ${accessToken}`;
           }
 

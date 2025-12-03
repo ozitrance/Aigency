@@ -103,7 +103,7 @@ const ExportModal = forwardRef(
           }
         }}
       >
-        <BaseModal.Trigger asChild>{props.children ?? <></>}</BaseModal.Trigger>
+        <BaseModal.Trigger asChild>{props.children ?? null}</BaseModal.Trigger>
         <BaseModal.Header description={EXPORT_DIALOG_SUBTITLE}>
           <span className="pr-2">Export</span>
           <IconComponent

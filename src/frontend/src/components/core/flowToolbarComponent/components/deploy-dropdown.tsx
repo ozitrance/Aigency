@@ -33,7 +33,7 @@ export default function PublishDropdown({
   setOpenApiModal,
 }: PublishDropdownProps) {
   const location = useHref("/");
-  const domain = window.location.origin + location;
+  const domain = typeof window !== 'undefined' ? window.location.origin + location : "";
   const [openEmbedModal, setOpenEmbedModal] = useState(false);
   const currentFlow = useFlowsManagerStore((state) => state.currentFlow);
   const flowId = currentFlow?.id;
@@ -210,7 +210,7 @@ export default function PublishDropdown({
         </DropdownMenuContent>
       </DropdownMenu>
       <ApiModal open={openApiModal} setOpen={setOpenApiModal}>
-        <></>
+        {null}
       </ApiModal>
       <EmbedModal
         open={openEmbedModal}

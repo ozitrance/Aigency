@@ -8,9 +8,12 @@ import { ModalsProvider } from '@mantine/modals';
 import reactFlowStyles from '@xyflow/react/dist/style.css?url';
 import mantineCoreStyles from '@mantine/core/styles.css?url';
 import mantineNotficationsStyles from '@mantine/notifications/styles.css?url';
-import styles from "./styles/styles.css?url"
 import { createTheme, Portal } from "@mantine/core";
-
+import ContextWrapper from "./contexts";
+import classes from "./style/classes.css?url";
+import index from "./style/index.css?url";
+import styles from "./App.css?url"
+import applies from "./style/applies.css?url";
 export const theme = createTheme({
     primaryColor: 'blue',
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
@@ -25,10 +28,13 @@ export const theme = createTheme({
 });
   
 export const links: LinksFunction = () => [
+    { rel: "stylesheet", href: classes },
+    { rel: "stylesheet", href: index },
+    { rel: "stylesheet", href: styles },
+    { rel: "stylesheet", href: applies },
+    { rel: "stylesheet", href: reactFlowStyles },
     { rel: "stylesheet", href: mantineCoreStyles },
     { rel: "stylesheet", href: mantineNotficationsStyles },
-    { rel: "stylesheet", href: reactFlowStyles },
-    { rel: "stylesheet", href: styles },
 ];
 const modals = {
 //   createEntityModal: CreateEntityModal,
@@ -48,11 +54,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Links />
         </head>
         <body>
+            <ScrollRestoration />
             <MantineProvider theme={theme}>
             <Notifications />
             <ModalsProvider modals={modals}>
-            <ScrollRestoration />
-                {children}
+                <ContextWrapper>
+                    {children}
+                </ContextWrapper>
             </ModalsProvider>
             </MantineProvider>
             <Scripts />

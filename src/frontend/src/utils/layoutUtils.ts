@@ -1,4 +1,4 @@
-import ELK, { type ElkNode } from "elkjs/lib/elk.bundled.js";
+import ELK, { type ElkNode } from "elkjs/lib/elk-api";
 import { cloneDeep } from "lodash";
 import { NODE_HEIGHT, NODE_WIDTH } from "@/constants/constants";
 import type { AllNodeType, EdgeType } from "@/types/flow";
@@ -15,7 +15,16 @@ const layoutOptions = {
   "elk.spacing.componentComponent": `${NODE_WIDTH}`,
   "elk.layered.considerModelOrder.strategy": "NODES_AND_EDGES",
 };
-const elk = new ELK();
+const elk = new ELK({
+  defaultLayoutOptions: {
+    'elk.algorithm': 'layered',
+    'elk.layered.nodePlacement.strategy': 'SIMPLE',
+    'elk.direction': 'DOWN',
+    'elk.layered.spacing.nodeNodeBetweenLayers': '100',
+  },
+  workerFactory: () =>
+    new Worker(new URL('elkjs/lib/elk-worker.min.js', import.meta.url)),
+})
 
 // uses elkjs to give each node a layouted position
 export const getLayoutedNodes = async (
