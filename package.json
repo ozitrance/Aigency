@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
-    "@types/node": "^24.7.0"
-  }
+    "name": "aigency",
+    "private": true,
+    "workspaces": ["src/*"]
 }

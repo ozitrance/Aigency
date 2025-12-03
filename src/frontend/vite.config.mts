@@ -11,6 +11,13 @@ import {
   PROXY_TARGET,
 } from "./src/customization/config-constants";
 
+import babel from "vite-plugin-babel";
+import { reactRouter } from "@react-router/dev/vite";
+import { reactRouterHonoServer } from "react-router-hono-server/dev";
+
+
+const ReactCompilerConfig = { /* ... */ };
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
@@ -57,7 +64,18 @@ export default defineConfig(({ mode }) => {
         envLangflow.LANGFLOW_MCP_COMPOSER_ENABLED ?? "true",
       ),
     },
-    plugins: [react(), svgr(), tsconfigPaths()],
+    plugins: [
+      reactRouterHonoServer({ runtime: "bun" }), reactRouter(), 
+      babel({
+        filter: /\.[jt]sx?$/,
+        babelConfig: {
+          presets: ["@babel/preset-typescript"], // if you use TypeScript
+          plugins: [
+            ["babel-plugin-react-compiler", ReactCompilerConfig],
+          ],
+        },
+      }),
+      svgr(), tsconfigPaths({root: "./"})],
     server: {
       port: port,
       proxy: {

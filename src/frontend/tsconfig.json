@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -9,9 +9,9 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "ES2022",
     "moduleResolution": "bundler",
-    "types": ["@storybook/react"],
+    "types": ["bun", "vite/client", "@storybook/react"],
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -19,11 +19,15 @@
     "noImplicitAny": false,
     "paths": {
       "@/*": ["*"],
+      "~/*": ["./src/*"],
       "@queries/*": ["controllers/API/queries/*"]
     },
+    "rootDirs": [".", "./.react-router/types"],
+    // "baseUrl": ".",
     "baseUrl": "src"
   },
   "include": [
+    "**/*", "**/.server/**/*", "**/.client/**/*", ".react-router/types/**/*", "types/**/*",
     "src",
     "tests/core/saveComponents.spec.ts",
     "tests/extended/actionsMainPage-shard-1.spec.ts",
